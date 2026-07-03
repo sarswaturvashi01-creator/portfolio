@@ -1021,36 +1021,82 @@ body {
     border-radius: 8px;
 }
 
+.hamburger {
+    display: none;
+}
+
 @media (max-width: 768px) {
-    * {
-
-        max-width: 100%;
-    }
 
 
-    body {
+    HTML, body {
         overflow-x: hidden;
-    }
+        width: 100%;
+        margin: 0;
+        padding: 0;
 
+    }
 
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+       
+        display: flex;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
         padding: 15px 20px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+    }
+    .navbar .logo, .navbar h2 {
+        margin: 0;
+        text-align: left;
     }
 
     .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #111;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+    }
+    .nav-links.active{
+        display: flex !important;
+        
+    }
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+    }
+    .nav-links a {
+        display: block;
+        color: white;
+        font-size: 18px;
+        padding: 10px 0;
         width: 100%;
     }
+    .hamburger{
+        display: block;
+        font-size: 28px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    
+
 
     .hero {
         flex-direction: column;
         align-items: center;
-        text-align: center;
+        text-align: left;
         padding: 40px 20px;
-        gap: 30px;
+         gap: 30px;
     }
 
     .hero-content {
@@ -1071,7 +1117,16 @@ body {
     }
 
     .hero-content h1 {
-        font-size: 40px;
+        font-size: 32px;
+    }
+
+    .hero-content h2 {
+        font-size: 24px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        text-align: left;
     }
 
     .about {
@@ -1122,7 +1177,7 @@ body {
         padding: 50px 20px;
     }
 
-    .skils-container {
+    .skills-container {
         justify-content: center;
         gap: 15px;
     }

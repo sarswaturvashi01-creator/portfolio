@@ -14,7 +14,10 @@
     <section class="">
         <nav class="navbar">
             <div class="logo">Port<span style="color:#6c63ff;">fo.</span></div>
-            <ul class="nav-links">
+
+
+            <ul class="nav-links" id="nav-links">
+
                 <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Skills</a></li>
@@ -441,4 +444,39 @@
             </div>
         </section>
     </section>
-</body
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.querySelector(".hamburger");
+            const navLinks = document.querySelector(".nav-links");
+            const links = document.querySelectorAll(".nav-links a");
+
+            if (hamburger && navLinks) {
+
+                hamburger.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle("active");
+                });
+
+
+                links.forEach(link => {
+                    link.addEventListener("click", function () {
+                        links.forEach(l => l.classList.remove("active"));
+                        this.classList.add("active");
+                        navLinks.classList.remove("active");
+                    });
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                        navLinks.classList.remove("active");
+                    }
+                });
+            } else {
+                console.error("HTML me .hamburger ya .nav-links class nahi mili!");
+            }
+        });
+    </script
+</body>
+
+</html>
