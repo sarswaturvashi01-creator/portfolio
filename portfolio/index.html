@@ -13,7 +13,7 @@
 <body>
     <section class="">
         <nav class="navbar">
-            <div class="logo">Port<span style="color:#6c63ff;">fo.</span></div>
+            <div class="logo"> Port<span style="color:#6c63ff;">fo.</span></div>
 
 
             <ul class="nav-links" id="nav-links">
@@ -30,7 +30,7 @@
             <div class="nav-right">
                 <button class="moon-btn">🌙</button>
                 <button class="btn">Hire Me</i></button>
-                <button class="hamburger">☰</button>
+                <button class="hamburger" id="hamburger">☰</button>
             </div>
         </nav>
 
@@ -455,28 +455,36 @@
 
                 hamburger.addEventListener("click", function (e) {
                     e.stopPropagation();
+
                     navLinks.classList.toggle("active");
+
+                    document.body.classList.toggle("no-scroll");
                 });
 
 
                 links.forEach(link => {
                     link.addEventListener("click", function () {
+
                         links.forEach(l => l.classList.remove("active"));
                         this.classList.add("active");
+
                         navLinks.classList.remove("active");
+                        document.body.classList.remove("no-scroll");
+
                     });
                 });
 
                 document.addEventListener("click", function (e) {
                     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
                         navLinks.classList.remove("active");
+                        document.body.classList.remove("no-scroll");
                     }
                 });
             } else {
                 console.error("HTML me .hamburger ya .nav-links class nahi mili!");
             }
         });
-    </script
+    </script>
 </body>
 
 </html>
